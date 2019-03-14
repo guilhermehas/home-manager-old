@@ -3,6 +3,9 @@
 {
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERMINAL = "urxvt";
+    BROWSER = "firefox";
+    READER = "zathura";
   };
 
   home.keyboard.layout = "br";

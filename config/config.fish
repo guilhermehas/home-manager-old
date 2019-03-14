@@ -15,6 +15,7 @@ alias ssh-flavio "ssh guilherme@200.20.164.152"
 
 alias nixos-edit "sudoedit /etc/nixos/configuration.nix"
 
-alias home-config "cd $HOME/.config/nixpkgs"
+alias home-dir "cd $HOME/.config/nixpkgs"
+abbr -a hmd "cd ~/.config/nixpkgs"
 
 alias config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

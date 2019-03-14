@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; with haskellPackages; [
     xmonad xmonad-extras xmonad-contrib
+    fish
   ];
 
   home.file = {
@@ -26,37 +27,12 @@
 
     fish = {
       enable = true;
-      interactiveShellInit = ''
-        set EDITOR "nvim"
-
-        alias pbcopy "xclip -selection clipboard"
-        alias pbpaste "xclip -selection clipboard -o"
-
-        set fishlocation "~/.config/fish/config.fish"
-        alias fish-location "$fishlocation"
-        alias fish-reload "source $fishlocation"
-        alias fish-edit "nvim $fishlocation"
-
-        alias chrome "google-chrome-stable"
-
-        alias default-chrome "sed -i -e 's/$firefoxname/$chromename/g' $mimemappslocation"
-        alias default-firefox "sed -i -e 's/$chromename/$firefoxname/g' $mimemappslocation"
-
-        alias ssh-flavio "ssh guilherme@200.20.164.152"
-
-        alias nixos-edit "sudoedit /etc/nixos/configuration.nix"
-
-        alias config 'git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-      '';
+      interactiveShellInit = builtins.readFile ./config/config.fish;
+    };
       
-      vim = {
-        enable = true;
-        extraConfig = ''
-          set tabstop=2
-          set shiftwidth=2
-          set expandtab
-        '';
-      };
+    vim = {
+      enable = true;
+      extraConfig = builtins.readFile ./config/vimrc;
     };
   };
 
@@ -64,10 +40,10 @@
   xsession.windowManager.xmonad = {
       enable = true;
       config = ./config/xmonad.hs;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-        haskellPackages.xmonad
+      extraPackages = haskellPackages: with haskellPackages; [
+        xmonad-contrib
+        xmonad-extras
+        xmonad
       ];
   };
 }

@@ -1,11 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   home.keyboard.layout = "br";
 
   home.packages = with pkgs; with haskellPackages; [
     xmonad xmonad-extras xmonad-contrib
-    fish
   ];
 
   home.file = {

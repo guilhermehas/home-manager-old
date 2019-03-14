@@ -8,11 +8,14 @@
   home.keyboard.layout = "br";
 
   home.packages = with pkgs; with haskellPackages; [
+    nitrogen
     xmonad xmonad-extras xmonad-contrib
   ];
 
   home.file = {
     ".scripts/change-keyboard.sh".source = ./scripts/change-keyboard.sh;
+    ".scripts/prompt.sh".source = ./scripts/prompt.sh;
+    ".scripts/change-monitor.sh".source = ./scripts/change-monitor.sh;
   };
 
   # Let Home Manager install and manage itself.

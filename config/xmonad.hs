@@ -107,7 +107,8 @@ main = do
 ---AUTOSTART
 ------------------------------------------------------------------------
 myStartupHook = do
-          spawnOnce "urxvtd &"
+          spawnOnce "nitrogen --restore &"
+          spawnOnce "bash .scripts/change-monitor.sh"
           setWMName "LG3D"
           --spawnOnce "/home/dt/.xmonad/xmonad.start" -- Sets our wallpaper
 
@@ -195,11 +196,12 @@ myKeys =
     -- Command Line Apps  (MOD + KEYPAD 1-9)
         , ("M-d", spawn "clipmenu")
         , ("M1-<Tab>", spawn "bash $HOME/.scripts/change-keyboard.sh")
+        , ("M-x", spawn "bash $HOME/.scripts/prompt.sh 'Do you want to shutdown?' 'shutdown -h now'")
 
     -- Command Line Apps  (MOD + KEYPAD 1-9)
         
     -- Command Line Apps  (MOD + SHIFT + KEYPAD 1-9)
-        , ("M-S-<KP_Page_Up>", spawn (myTerminal ++ " -e vim ~/.xmonad/xmonad.hs"))    -- Keypad 9
+        -- , ("M-S-<KP_Page_Up>", spawn (myTerminal ++ " -e vim ~/.xmonad/xmonad.hs"))    -- Keypad 9
         
     -- Command Line Apps  (MOD + CTRL + KEYPAD 1-9)
         , ("M-C-<KP_End>", spawn (myTerminal ++ " -e htop"))                           -- Keypad 1

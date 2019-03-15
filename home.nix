@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  # nixpkgs.config.allowUnfree = true;
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "urxvt";
@@ -11,7 +12,6 @@
   home.keyboard.layout = "br";
 
   home.packages = with pkgs; with haskellPackages; [
-    nitrogen
     xmonad xmonad-extras xmonad-contrib
   ];
 

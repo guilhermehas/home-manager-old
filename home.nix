@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "urxvt";
     BROWSER = "firefox";
     READER = "zathura";
+
+    AGDA_DIR = "/home/guilherme/.agda";
   };
 
   home.keyboard.layout = "br";
@@ -19,6 +21,7 @@
     ".scripts/change-keyboard.sh".source = ./scripts/change-keyboard.sh;
     ".scripts/prompt.sh".source = ./scripts/prompt.sh;
     ".scripts/change-monitor.sh".source = ./scripts/change-monitor.sh;
+    ".scripts/shutdown.sh".source = ./scripts/shutdown.sh;
   };
 
   # Let Home Manager install and manage itself.

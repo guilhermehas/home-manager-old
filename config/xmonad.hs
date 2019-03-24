@@ -196,7 +196,7 @@ myKeys =
     -- Command Line Apps  (MOD + KEYPAD 1-9)
         , ("M-d", spawn "clipmenu")
         , ("M1-<Tab>", spawn "bash $HOME/.scripts/change-keyboard.sh")
-        , ("M-x", spawn "bash $HOME/.scripts/prompt.sh 'Do you want to shutdown?' 'shutdown -h now'")
+        , ("M-x", spawn "bash $HOME/.scripts/prompt.sh 'Do you want to shutdown?' 'bash .scripts/shutdown.sh'")
 
     -- Command Line Apps  (MOD + KEYPAD 1-9)
         
